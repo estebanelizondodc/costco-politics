@@ -1,180 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>What Costco&#x27;s Expansion Reveals About American Politics</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="What Costco's Expansion Reveals About American Politics">
+  <title>What Costco's Expansion Reveals About American Politics</title>
   <style>
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: #fff;
-      color: #171717;
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-    }
-    main { width: 100%; }
-    header {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 76px 24px 42px;
-    }
-    h1 {
-      margin: 0;
-      max-width: 880px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: clamp(2.4rem, 6vw, 5rem);
-      line-height: 1.02;
-      letter-spacing: -0.035em;
-      font-weight: 400;
-    }
-    .dek {
-      max-width: 760px;
-      margin: 24px 0 0;
-      color: #444;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: clamp(1.1rem, 2.1vw, 1.45rem);
-      line-height: 1.45;
-      font-weight: 400;
-    }
-    .story {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 24px;
-      font-size: 1.17rem;
-      line-height: 1.72;
-      font-weight: 400;
-    }
-    .story p {
-      margin: 0 0 1.35em;
-      font-weight: 400;
-    }
-    .graphic {
-      max-width: 1120px;
-      margin: 52px auto 58px;
-      padding: 0 20px;
-    }
-    .graphic > div { width: 100%; }
-    .quote-box {
-      max-width: 720px;
-      margin: 42px auto;
-      padding: 24px 28px;
-      background: #f7f7f5;
-      border-left: 3px solid #999;
-      font-weight: 400;
-    }
-    .quote-box p { margin: 0; font-weight: 400; }
-    .quote {
-      font-size: 1.25rem;
-      line-height: 1.6;
-      font-style: italic;
-    }
-    .attribution {
-      margin-top: 14px !important;
-      color: #666;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: .92rem;
-      line-height: 1.5;
-    }
-    .methodology {
-      max-width: 760px;
-      margin: 72px auto 68px;
-      padding: 30px 32px;
-      background: #f5f5f3;
-      border-top: 1px solid #dedede;
-      border-bottom: 1px solid #dedede;
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: 400;
-    }
-    .methodology h2 {
-      margin: 0 0 14px;
-      font-size: 1.18rem;
-      font-weight: 400;
-    }
-    .methodology p {
-      margin: 0 0 13px;
-      color: #444;
-      font-size: .94rem;
-      line-height: 1.6;
-      font-weight: 400;
-    }
-    @media (max-width: 700px) {
-      header { padding-top: 48px; }
-      .story { font-size: 1.07rem; line-height: 1.68; }
-      .graphic { margin: 38px auto 42px; padding: 0 8px; }
-      .quote-box { margin: 34px 16px; padding: 22px 20px; }
-      .methodology { margin-left: 16px; margin-right: 16px; padding: 24px 22px; }
+    body { margin:0; background:#fff; color:#171717; font-family:Georgia,"Times New Roman",serif; -webkit-font-smoothing:antialiased; }
+    .page { width:100%; }
+    .hero { max-width:900px; margin:0 auto; padding:72px 24px 38px; }
+    h1 { margin:0; font-family:Arial,Helvetica,sans-serif; font-size:clamp(2.5rem,6vw,5rem); line-height:1.02; letter-spacing:-0.04em; font-weight:700; }
+    .dek { max-width:760px; margin:24px 0 0; font-family:Arial,Helvetica,sans-serif; color:#444; font-size:clamp(1.15rem,2vw,1.5rem); line-height:1.45; }
+    .byline { margin:22px 0 0; font-family:Arial,Helvetica,sans-serif; font-size:.95rem; color:#333; }
+    .story { max-width:720px; margin:0 auto; padding:0 24px; font-size:1.17rem; line-height:1.72; }
+    .story p { margin:0 0 1.35em; }
+    .graphic { max-width:1080px; margin:52px auto 58px; padding:0 18px; }
+    .graphic iframe { display:block; width:100%; max-width:100%; border:0; margin:0 auto; }
+    .beeswarm-wrap { max-width:1080px; margin:54px auto 58px; padding:0 18px; }
+    .beeswarm-title { margin:0 0 6px; font-family:Arial,Helvetica,sans-serif; font-size:1.25rem; line-height:1.3; font-weight:700; }
+    .beeswarm-subtitle { margin:0 0 16px; font-family:Arial,Helvetica,sans-serif; color:#666; font-size:.9rem; line-height:1.45; }
+    .beeswarm-subtitle a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+    .beeswarm-object { width:100%; min-height:520px; display:block; border:0; background:#fff; }
+    .beeswarm-fallback { padding:30px; border:1px solid #ddd; font-family:Arial,Helvetica,sans-serif; color:#666; }
+    blockquote { margin:34px 0; padding:0 0 0 22px; border-left:3px solid #999; font-size:1.15em; line-height:1.6; }
+    blockquote p { margin-bottom:.8em !important; }
+    .quote-credit { font-family:Arial,Helvetica,sans-serif; font-size:.85rem; color:#666; }
+    .methodology { max-width:760px; margin:74px auto 0; padding:30px 32px; background:#f5f5f3; border-top:1px solid #dedede; border-bottom:1px solid #dedede; font-family:Arial,Helvetica,sans-serif; }
+    .methodology h2 { margin:0 0 16px; font-size:1.2rem; }
+    .methodology p { margin:0 0 14px; color:#444; font-size:.93rem; line-height:1.6; }
+    footer { max-width:760px; margin:0 auto; padding:30px 24px 70px; font-family:Arial,Helvetica,sans-serif; font-size:.82rem; color:#777; }
+    @media (max-width:700px) {
+      .hero { padding-top:48px; }
+      .story { font-size:1.08rem; line-height:1.68; }
+      .graphic,.beeswarm-wrap { padding-left:8px; padding-right:8px; }
+      .methodology { margin-left:16px; margin-right:16px; padding:24px 22px; }
+      .beeswarm-object { min-height:420px; }
     }
   </style>
 </head>
 <body>
-<main>
-  <header>
-    <h1>What Costco&#x27;s Expansion Reveals About American Politics</h1>
-    <p class="dek">Costco spent two decades betting on America&#x27;s growing communities. Their political futures proved far less predictable.</p>
+<div class="page">
+  <header class="hero">
+    <h1>What Costco's Expansion Reveals About American Politics</h1>
+    <p class="dek">Costco spent two decades betting on America's growing communities. Their political futures proved far less predictable.</p>
+    <p class="byline">Esteban Elizondo</p>
   </header>
-<article class="story"><p>As campaigns battle through the 2026 midterm elections, one statistic has become almost impossible to ignore: population change. Political consultants and journalists will collectively devote countless hours scouring Census estimates for fast-growing suburbs and counties gaining (or losing) thousands of residents, scraping spreadsheets for clues about America&#x27;s political future. </p></article>
-<article class="story"><p>Population growth has become one of the most common ways to identify communities in transition, but it is also an incomplete one.</p></article>
-<article class="story"><p>Over the past two decades, Costco has made hundreds of long-term investments in places where it believed Americans would live and spend for decades to come. Every warehouse represented a multimillion-dollar business decision rooted in consumer demand and long-term economic viability.</p></article>
-<article class="story"><p>The company was never trying to predict elections. But those investments provide an unusual way to examine how American communities have changed.</p></article>
-<article class="story"><p>Using county-level presidential election returns and U.S. Census population estimates, I built a dataset tracking all 165 counties where Costco opened a warehouse between 2000 and 2020. Together, those records show how the communities Costco chose evolved politically and demographically over more than two decades.</p></article>
-<article class="story"><p>At first glance, the pattern appears straightforward. Most Costco counties shifted toward Democrats between the 2000 and 2024 presidential elections. That was fairly predictable.</p></article>
 
-<section class="graphic">
-  <div style="min-height:574px" id="datawrapper-vis-wDKfa">
-    <script type="text/javascript" defer src="https://datawrapper.dwcdn.net/wDKfa/embed.js" charset="utf-8" data-target="#datawrapper-vis-wDKfa"></script>
-    <noscript><img src="https://datawrapper.dwcdn.net/wDKfa/full.png" alt="How Costco Counties Changed Politically (Choropleth map)" style="width:100%;height:auto;" /></noscript>
-  </div>
-</section>
-<article class="story"><p>Nearly three-quarters shifted Democratic. One hundred counties shifted at least five percentage points toward Democrats, while another 37 remained within five points of where they began. Only 28 shifted more than five points toward Republicans.</p></article>
-<article class="story"><p>That pattern resembles one of the defining political stories of the early twenty-first century. Costco expanded heavily into metropolitan suburbs around cities such as Dallas, Washington, Phoenix, and Atlanta, communities that attracted new residents and investment while also becoming increasingly competitive or Democratic.</p></article>
-<article class="story"><p>On its face, Costco&#x27;s expansion seems to reinforce the conventional wisdom that fast-growing suburbs have become a center of American political change. Viewed that way, Costco looks like another company riding America&#x27;s suburban boom. A closer look complicates that story.</p></article>
-<article class="story"><p>Although most Costco counties moved toward Democrats, the counties moving most sharply toward Republicans looked remarkably different from one another. Nassau County, New York, is an affluent Long Island suburb. Ocean County, New Jersey, is older and retirement-oriented. Hidalgo County, Texas, sits along the U.S.-Mexico border and is overwhelmingly Hispanic.</p></article>
-<article class="story"><p>On paper, they share little except one distinction: each ranked among the strongest Republican-moving Costco counties in the country.</p></article>
+  <article class="story">
+    <p>As campaigns battle through the 2026 midterm elections, one statistic has become almost impossible to ignore: population change. Political consultants and journalists will collectively devote countless hours scouring Census estimates for fast-growing suburbs and counties gaining (or losing) thousands of residents, scraping spreadsheets for clues about America's political future.</p>
+    <p>Population growth has become one of the most common ways to identify communities in transition, but it is also an incomplete one.</p>
+    <p>Over the past two decades, Costco has made hundreds of long-term investments in places where it believed Americans would live and spend for decades to come. In 2025 alone, Costco built new warehouses while spending nearly $5.5 billion on capital projects, including new and remodeled warehouses, according to their annual report.</p>
+    <p>The company was never trying to predict elections. But those investments provide an unusual way to examine how American communities have changed.</p>
+    <p>Using county-level presidential election returns and U.S. Census population estimates, I built a dataset tracking all 165 counties where Costco opened a warehouse between 2000 and 2020. Together, those records show how the communities Costco chose evolved politically and demographically over more than two decades.</p>
+    <p>At first glance, the pattern appears straightforward. Most Costco counties shifted toward Democrats between the 2000 and 2024 presidential elections. That was fairly predictable.</p>
+  </article>
 
-<section class="graphic">
-  <div style="min-height:395px" id="datawrapper-vis-qz3WQ">
-    <script type="text/javascript" defer src="https://datawrapper.dwcdn.net/qz3WQ/embed.js" charset="utf-8" data-target="#datawrapper-vis-qz3WQ"></script>
-    <noscript><img src="https://datawrapper.dwcdn.net/qz3WQ/full.png" alt="Most Costco Counties Shifted Democratic, but Republican Exceptions Were Significant (Bar Chart)" style="width:100%;height:auto;" /></noscript>
-  </div>
-</section>
-<article class="story"><p>Those exceptions make it difficult to describe Costco&#x27;s expansion as a bet on communities destined to become Democratic. Nor was the company selecting Republican strongholds. Its warehouses instead landed in places whose political trajectories proved remarkably different.</p></article>
+  <section class="graphic" aria-label="Map showing how Costco counties changed politically">
+    <iframe title="How Costco Counties Changed Politically" aria-label="Choropleth map" id="datawrapper-chart-wDKfa" src="https://datawrapper.dwcdn.net/wDKfa/5/" scrolling="no" frameborder="0" style="border:none;" height="578" data-external="1"></iframe>
+  </section>
 
-<section class="quote-box" aria-label="Mark Mitchell quote placeholder">
-  <p class="quote">“MARK MITCHELL QUOTE GOES HERE.”</p>
-  <p class="attribution">Mark Mitchell, Rasmussen Reports</p>
-</section>
-<article class="story"><p>That brings the analysis back to population. Perhaps politics was never the common thread. Perhaps Costco was simply following growth. That explanation makes intuitive sense. Warehouse retailers need customers. New subdivisions create households. More households mean more potential members. If Costco consistently chose counties where populations were expanding, population growth might also help explain why so many of those places later changed politically.</p></article>
-<article class="story"><p>The data tells a less predictable story.</p></article>
+  <article class="story">
+    <p>Nearly three-quarters shifted Democratic. One hundred counties shifted at least five percentage points toward Democrats, while another 37 remained within five points of where they began. Only 28 shifted more than five points toward Republicans.</p>
+    <p>That pattern resembles one of the defining political stories of the early twenty-first century. Costco expanded heavily into metropolitan suburbs. A Brookings Institution analysis of the 2016 and 2020 elections found that rapidly urbanizing suburbs were moving toward the Democratic Party, with particularly notable Democratic gains in major metropolitan areas including Dallas-Fort Worth, Phoenix, Atlanta, and Northern Virginia</p>
+    <p>On its face, Costco's expansion seems to reinforce the conventional wisdom that fast-growing suburbs have become a center of American political change. Viewed that way, Costco looks like another company riding America's suburban boom. A closer look complicates that story.</p>
+    <p>Although most Costco counties moved toward Democrats, the counties moving most sharply toward Republicans looked remarkably different from one another. Nassau County, New York, is an affluent Long Island suburb. Ocean County, New Jersey, is older and retirement-oriented. Hidalgo County, Texas, sits along the U.S.-Mexico border and is overwhelmingly Hispanic.</p>
+    <p>Those counties also reflect constituencies that were central to Trump’s 2024 coalition, per a Pew Research. On paper, they share little except one distinction: each ranked among the strongest Republican-moving Costco counties in the country.</p>
+  </article>
 
-<section class="graphic">
-  <div style="min-height:537px" id="datawrapper-vis-RDIv9">
-    <script type="text/javascript" defer src="https://datawrapper.dwcdn.net/RDIv9/embed.js" charset="utf-8" data-target="#datawrapper-vis-RDIv9"></script>
-    <noscript><img src="https://datawrapper.dwcdn.net/RDIv9/full.png" alt="Population Growth Alone Did Not Predict Political Change in Costco Counties (Scatter Plot)" style="width:100%;height:auto;" /></noscript>
-  </div>
-</section>
-<article class="story"><p>If population growth alone accounted for political change, counties growing at similar rates should show at least some tendency to follow similar political trajectories. Instead, the counties spread across nearly the entire political spectrum. Some rapidly growing counties became substantially more Democratic. Others barely changed politically. Some counties with relatively modest population growth underwent dramatic partisan realignment.</p></article>
-<article class="story"><p>The point is not that population growth does not matter. It clearly does. Growth influences where businesses invest, where housing is built and where new economic opportunities emerge. Costco&#x27;s expansion reflects that reality.</p></article>
-<article class="story"><p>But population growth does not tell us what political change, if any, will follow.</p></article>
-<article class="story"><p>Dallas County, Iowa, is a striking example. Its population increased dramatically between 2000 and 2020, yet its presidential margin changed very little. Whatever else changed as the county grew, its partisan balance remained comparatively stable. Elsewhere, the relationship ran in the opposite direction.</p></article>
-<article class="story"><p>Nassau County experienced one of the largest Republican shifts in the dataset despite relatively modest population growth. DuPage County, Illinois, also grew relatively little but moved sharply toward Democrats. Similar population trajectories produced very different political outcomes.</p></article>
-<article class="story"><p>Orleans Parish, Louisiana, offers an even more unusual case. More than 20 years after Hurricane Katrina, Orleans still had fewer residents in 2020 than it did in 2000. Yet the parish (Louisiana county-equivalent) nevertheless moved further toward Democrats over the same period. Population decline did not mean political stagnation.</p></article>
-<article class="story"><p>That example helps clarify what the broader dataset can and cannot tell us. Communities do not change along a single axis. Some add large numbers of residents without moving much politically. Others undergo major political realignment while growing slowly or even losing population. </p></article>
-<article class="story"><p>Population tells us something important about a place, but it does not tell us everything that is happening inside it.</p></article>
-<article class="story"><p>That distinction matters as campaigns once again search for the communities most likely to shape the next election. Fast-growing suburbs will continue drawing attention from candidates and journalists because growth often signals political opportunity. The Costco counties suggest that growth is a useful place to start, but a dangerous place to stop.</p></article>
-<article class="story"><p>Costco never set out to document political change. Its warehouses were business decisions, not electoral forecasts. The company was trying to identify communities with the long-term economic strength to support a warehouse for years to come.</p></article>
-<article class="story"><p>Looking backward, those decisions reveal an unexpected divide between two ways of forecasting America&#x27;s future. Businesses like Costco are trying to determine where communities will matter economically. Campaigns are trying to determine how those communities will vote. Those maps are not identical, but they often overlap.</p></article>
-<article class="story"><p>Over the past two decades, Costco repeatedly invested in places where America was changing. Some became more Democratic. Others moved toward Republicans. Still others added enormous numbers of residents while remaining politically indistinguishable.</p></article>
-<article class="story"><p>Every Costco begins with a bet that a community will matter years into the future. Long after the ribbon cutting, the crowded parking lot, and the grocery cart armada, that community continues evolving in ways no retailer or campaign can fully anticipate.</p></article>
-<article class="story"><p>As another election season unfolds, that may be the more useful lesson. Finding where America is changing is one challenge. Understanding what those changes will mean politically is another.</p></article>
-<aside class="methodology">
-<h2>Methodology</h2>
-<p>This analysis examines every Costco warehouse that opened in the United States between January 1, 2000, and December 31, 2020, and remained in operation as of August 2026. A total of 165 warehouses met those criteria.</p>
-<p>Warehouse opening dates and locations were compiled from Costco Wholesale warehouse records and cross-referenced with county boundaries using the warehouse&#x27;s county of location. Counties with multiple Costco openings during the study period were included only once, based on the first warehouse opening.</p>
-<p>County-level presidential election returns for the 2000 through 2024 elections were obtained from the MIT Election Data and Science Lab. Political change was measured as the change in each county&#x27;s Democratic-Republican presidential vote margin between 2000 and 2024.</p>
-<p>Population data were obtained from the IPUMS National Historical Geographic Information System using decennial Census counts for 2000 and 2020. Population growth was calculated as the percentage change between those two Census years.</p>
-</aside>
-</main>
+  <section class="graphic" aria-label="Bar chart showing partisan shifts in Costco counties">
+    <iframe title="Most Costco Counties Shifted Democratic, but Republican Exceptions Were Significant" aria-label="Bar Chart" id="datawrapper-chart-qz3WQ" src="https://datawrapper.dwcdn.net/qz3WQ/1/" scrolling="no" frameborder="0" style="border:none;" height="395" data-external="1"></iframe>
+  </section>
+
+  <article class="story">
+    <p>Those exceptions make it difficult to describe Costco's expansion as a bet on communities destined to become Democratic. Nor was the company selecting Republican strongholds. Its warehouses instead landed in places whose political trajectories proved remarkably different.</p>
+    <blockquote>
+      <p>“From my experience working on campaigns across California, I’ve seen firsthand how the state reflects a broader national realignment: highly educated, affluent and diverse suburban communities are increasingly Democratic, while working-class and rural voters have moved more Republican. That helps explain why Costco communities may be trending more Democratic—their customer base often overlaps with the suburban, higher-income and educated voters who are increasingly at the center of the Democratic coalition.”</p>
+      <div class="quote-credit">— Reyna Tomasek, California grassroots organizer and campaign consultant</div>
+    </blockquote>
+    <p>That brings the analysis back to population. Perhaps politics was never the common thread. Perhaps Costco was simply following growth. That explanation makes intuitive sense. Warehouse retailers need customers. New subdivisions create households. More households mean more potential members. If Costco consistently chose counties where populations were expanding, population growth might also help explain why so many of those places later changed politically.</p>
+    <p>The data tells a less predictable story.</p>
+  </article>
+
+  <section class="graphic" aria-label="Scatter plot comparing population growth and partisan change">
+    <iframe title="Population Growth Alone Did Not Predict Political Change in Costco Counties" aria-label="Scatter Plot" id="datawrapper-chart-RDIv9" src="https://datawrapper.dwcdn.net/RDIv9/2/" scrolling="no" frameborder="0" style="border:none;" height="537" data-external="1"></iframe>
+  </section>
+
+  <article class="story">
+    <p>If population growth alone accounted for political change, counties growing at similar rates should show at least some tendency to follow similar political trajectories. Instead, the counties spread across nearly the entire political spectrum. Some rapidly growing counties became substantially more Democratic. Others barely changed politically. Some counties with relatively modest population growth underwent dramatic partisan realignment.</p>
+    <p>Population growth alone does not signify what political change, if any, will follow.</p>
+    <p>Dallas County, Iowa, is a striking example. Its population increased dramatically between 2000 and 2020, yet its presidential margin changed very little. Whatever else changed as the county grew, its partisan balance remained comparatively stable. Elsewhere, the relationship ran in the opposite direction.</p>
+    <p>Nassau County experienced one of the largest Republican shifts in the dataset despite modest population growth, taking an R+13 swing and flipping from Biden in 2020 to Trump in 2024. DuPage County, Illinois, also grew relatively little but moved sharply toward Democrats. Similar population trajectories produced very different political outcomes.</p>
+    <p>Orleans Parish, Louisiana, offers an even more unusual case. More than 20 years after Hurricane Katrina, Orleans still had fewer residents in 2020 than it did in 2000. Yet the parish (Louisiana county-equivalent) nevertheless moved further toward Democrats over the same period. Population decline did not mean political stagnation.</p>
+    <p>That example helps clarify what the broader dataset can and cannot tell us. Communities do not change along a single axis. Some add large numbers of residents without moving much politically. Others undergo major political realignment while growing slowly or even losing population.</p>
+    <p>Population tells us something important about a place, but it does not tell us everything that is happening inside it.</p>
+  </article>
+
+  <section class="beeswarm-wrap" aria-label="Beeswarm plot of political and population change">
+    <p class="beeswarm-title">Political change varied widely across Costco counties</p>
+    <p class="beeswarm-subtitle">
+      Each circle represents a Costco county. Circle size reflects the magnitude of population change from 2000 to 2020.
+      Data:
+      <a href="https://docs.google.com/spreadsheets/d/1imQbPIFrN-xnPg7193Hf3kH2bAY9QnWd/edit?gid=1266923439#gid=1266923439" target="_blank" rel="noopener noreferrer">Costco county political-change dataset</a>.
+    </p>
+    <object class="beeswarm-object" data="beeswarm.svg" type="image/svg+xml" aria-label="Beeswarm plot">
+      <div class="beeswarm-fallback">Beeswarm graphic unavailable. Place <code>beeswarm.svg</code> in the same GitHub repository folder as <code>index.html</code>.</div>
+    </object>
+  </section>
+
+  <article class="story">
+    <p>That distinction matters as campaigns once again search for the communities most likely to shape the next election. Fast-growing suburbs will continue drawing attention from candidates and journalists because growth often signals political opportunity. The Costco counties suggest that growth is a useful place to start, but a dangerous place to stop.</p>
+    <p>Costco never set out to document political change. Its warehouses were business decisions, not electoral forecasts. The company was trying to identify communities with the long-term economic strength to support a warehouse for years to come.</p>
+    <p>Looking backward, those decisions reveal an unexpected divide between two ways of forecasting America's future. Businesses like Costco are trying to determine where communities will matter economically. Campaigns are trying to determine how those communities will vote. Those maps are not identical, but they often overlap.</p>
+    <p>Over the past two decades, Costco repeatedly invested in places where America was changing. Some became more Democratic. Others moved toward Republicans. Still others added enormous numbers of residents while remaining politically indistinguishable.</p>
+    <p>Every Costco begins with a bet that a community will matter years into the future. Long after the ribbon cutting, the crowded parking lot, and the grocery cart armada, that community continues evolving in ways no retailer or campaign can fully anticipate.</p>
+    <p>As another election season unfolds, that may be the more useful lesson. Finding where America is changing is one challenge. Understanding what those changes will mean politically is another.</p>
+  </article>
+
+  <section class="methodology">
+    <h2>Methodology</h2>
+    <p>This analysis examines every Costco warehouse that opened in the United States between January 1, 2000, and December 31, 2020, and remained in operation as of August 2026. A total of 165 warehouses met those criteria.</p>
+    <p>Warehouse opening dates and locations were compiled from Costco Wholesale warehouse records and cross-referenced with county boundaries using the warehouse's county of location. Counties with multiple Costco openings during the study period were included only once, based on the first warehouse opening.</p>
+    <p>County-level presidential election returns for the 2000 through 2024 elections were obtained from the MIT Election Data and Science Lab. Political change was measured as the change in each county's Democratic-Republican presidential vote margin between 2000 and 2024.</p>
+    <p>Population data were obtained from the IPUMS National Historical Geographic Information System using decennial Census counts for 2000 and 2020. Population growth was calculated as the percentage change between those two Census years.</p>
+  </section>
+
+  <footer>Data reporting, analysis and graphics by Esteban Elizondo.</footer>
+</div>
 </body>
 </html>
